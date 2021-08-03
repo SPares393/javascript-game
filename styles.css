@@ -59,6 +59,22 @@ header {
   border: 1px solid maroon;
 }
 
+.game-piece-1 {
+  color: red;
+}
+
+.game-piece-2 {
+  color: blue;
+}
+
+.square-1 {
+  background-color: lightgreen;
+}
+
+.square-100 {
+  background-color: gold;
+}
+
 .game-dice {
   border: 5px solid green;
   width: 250px;
