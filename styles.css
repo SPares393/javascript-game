@@ -31,6 +31,14 @@ header {
   margin: 15px;
 }
 
+.player-1 {
+  color: red;
+}
+
+.player-2 {
+  color: blue;
+}
+
 :root {
   --grid-cols: 1;
   --grid-rows: 1;
