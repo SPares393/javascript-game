@@ -3,6 +3,8 @@ const gameStart = document.querySelector(".game-start");
 const dice = document.querySelector(".dice");
 const gamePieceOne = `<i class="fas fa-user game-piece-1"></i>`;
 const gamePieceTwo = `<i class="fas fa-user game-piece-2"></i>`;
+const winnerMessage = document.querySelector(".winner-message");
+const blur = document.querySelector(".blur");
 
 // INITIAL CONDITIONS
 let isPlaying = false;
@@ -27,6 +29,11 @@ const gameReset = function () {
   currentPlayer = 1;
   playerOnePosition = 1;
   playerTwoPosition = 1;
+  squareEnd.textContent = `100`;
+  document.querySelector(`.square-${playerOnePosition}`).textContent =
+    playerOnePosition;
+  document.querySelector(`.square-${playerTwoPosition}`).textContent =
+    playerTwoPosition;
   squareOne.innerHTML += `${gamePieceOne} ${gamePieceTwo}`;
 };
 
@@ -42,6 +49,24 @@ gameStart.addEventListener("click", function () {
     gameReset();
   }
 });
+
+// WIN FUNCTION
+
+const displayWinnerMessage = function (player) {
+  winnerMessage.innerHTML = `<h1>Player ${player} Wins!!!</h1>`;
+  winnerMessage.classList.remove("hidden");
+  blur.classList.remove("hidden");
+};
+
+const hideWinnerMessage = function () {
+  if (!winnerMessage.classList.contains("hidden")) {
+    winnerMessage.classList.add("hidden");
+    blur.classList.add("hidden");
+  }
+};
+
+winnerMessage.addEventListener("click", hideWinnerMessage);
+blur.addEventListener("click", hideWinnerMessage);
 
 // TURN FUNCTIONS
 
@@ -63,7 +88,8 @@ let snakesAndLadders = {
 const turnPlayerOne = function () {
   if (playerOnePosition >= 100) {
     squareEnd.innerHTML += `${gamePieceOne}`;
-    gameBoard.innerHTML = `<h1 class="winner-message">Player One Wins!!!</h1>`;
+    displayWinnerMessage("One");
+    isPlaying = false;
   } else if (snakesAndLadders[playerOnePosition]) {
     playerOnePosition = snakesAndLadders[playerOnePosition];
     const newPosition = `.square-${playerOnePosition}`;
@@ -77,7 +103,8 @@ const turnPlayerOne = function () {
 const turnPlayerTwo = function () {
   if (playerTwoPosition >= 100) {
     squareEnd.innerHTML += `${gamePieceTwo}`;
-    gameBoard.innerHTML = `<h1 class="winner-message">Player Two Wins!!!</h1>`;
+    displayWinnerMessage("Two");
+    isPlaying = false;
   } else if (snakesAndLadders[playerTwoPosition]) {
     playerTwoPosition = snakesAndLadders[playerTwoPosition];
     const newPosition = `.square-${playerTwoPosition}`;
@@ -91,10 +118,12 @@ const turnPlayerTwo = function () {
 // GENERATE DICE ROLL
 dice.addEventListener("click", function () {
   if (isPlaying === true) {
-    const diceRoll = Math.trunc(Math.random() * 6) + 1;
+    // const diceRoll = Math.trunc(Math.random() * 6) + 1;
+    const diceRoll = 50;
 
     // DISPLAY DICE ROLL
-    dice.src = `/images/dice-${diceRoll}.png`;
+    // dice.src = `/images/dice-${diceRoll}.png`;
+    dice.src = `/images/dice-6.png`;
 
     // MOVE GAME PIECE
     if (playerOnePosition === playerTwoPosition) {
