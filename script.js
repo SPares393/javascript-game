@@ -1,7 +1,21 @@
+let snakesAndLadders = {
+  // Snakes
+  42: 7,
+  99: 11,
+  58: 24,
+  77: 39,
+  85: 61,
+  // Ladders
+  2: 33,
+  19: 28,
+  25: 66,
+  59: 89,
+  73: 91,
+};
+
 const gameBoard = document.querySelector(".game-board");
 const gameStart = document.querySelector(".game-start");
 const dice = document.querySelector(".dice");
-const squareOne = document.querySelector(".square-1");
 const gamePieceOne = `<i class="fas fa-user game-piece-1"></i>`;
 const gamePieceTwo = `<i class="fas fa-user game-piece-2"></i>`;
 
@@ -19,20 +33,42 @@ const makeGrid = function (rows, cols) {
 };
 makeGrid(10, 10);
 
+const squareOne = document.querySelector(".square-1");
+
 // INITIATE GAME
+
+const gameReset = function () {
+  currentPlayer = 1;
+  playerOnePosition = 1;
+  playerTwoPosition = 1;
+  squareOne.innerHTML += `${gamePieceOne} ${gamePieceTwo}`;
+};
+
 gameStart.addEventListener("click", function () {
   if (isPlaying === false) {
     isPlaying = true;
-    currentPlayer = 1;
-    playerOnePosition = 1;
-    playerTwoPosition = 1;
-    document.querySelector(
-      ".square-1"
-    ).innerHTML += `${gamePieceOne} ${gamePieceTwo}`;
+    gameReset();
+  } else {
+    document.querySelector(`.square-${playerOnePosition}`).textContent =
+      playerOnePosition;
+    document.querySelector(`.square-${playerTwoPosition}`).textContent =
+      playerTwoPosition;
+    gameReset();
   }
 });
 
 // DICE ROLL FUNCTIONALITY
+
+const checkSnakesAndLadders = function () {
+  if (snakes[playerOnePosition]) {
+    playerOnePosition = snakes[playerOnePosition];
+  } else if (ladders[playerOnePosition]) {
+    playerOnePosition = ladders[playerOnePosition];
+  } else {
+    continue;
+  }
+};
+
 dice.addEventListener("click", function () {
   if (isPlaying === true) {
     const diceRoll = Math.trunc(Math.random() * 6) + 1;
