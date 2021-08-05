@@ -46,6 +46,16 @@ header {
   color: blue;
 }
 
+.game-start {
+  padding: 10px;
+  margin: 10px 5px 5px;
+  font-size: 1.25rem;
+  background-color: slategrey;
+  color: seashell;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px dimgrey;
+}
+
 :root {
   --grid-cols: 1;
   --grid-rows: 1;
@@ -70,7 +80,7 @@ header {
   color: gold;
   text-align: center;
   position: absolute;
-  background-color: green;
+  background-color: dimgrey;
   padding: 50px;
   max-width: 75%;
   border-radius: 20px;
@@ -98,10 +108,12 @@ header {
 
 .game-piece-1 {
   color: red;
+  font-size: 1.5rem;
 }
 
 .game-piece-2 {
   color: blue;
+  font-size: 1.5rem;
 }
 
 .square-1 {
@@ -200,4 +212,5 @@ header {
   border: 5px solid dimgrey;
   border-radius: 10px;
   margin-top: 10px;
+  box-shadow: 5px 5px 10px dimgrey;
 }
