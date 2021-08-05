@@ -27,13 +27,11 @@ const squareEnd = document.querySelector(".square-100");
 
 const gameReset = function () {
   currentPlayer = 1;
+  for (let i = 1; i < 101; i++) {
+    document.querySelector(`.square-${i}`).textContent = i;
+  }
   playerOnePosition = 1;
   playerTwoPosition = 1;
-  squareEnd.textContent = `100`;
-  document.querySelector(`.square-${playerOnePosition}`).textContent =
-    playerOnePosition;
-  document.querySelector(`.square-${playerTwoPosition}`).textContent =
-    playerTwoPosition;
   squareOne.innerHTML += `${gamePieceOne} ${gamePieceTwo}`;
 };
 
@@ -42,10 +40,6 @@ gameStart.addEventListener("click", function () {
     isPlaying = true;
     gameReset();
   } else {
-    document.querySelector(`.square-${playerOnePosition}`).textContent =
-      playerOnePosition;
-    document.querySelector(`.square-${playerTwoPosition}`).textContent =
-      playerTwoPosition;
     gameReset();
   }
 });
@@ -118,12 +112,10 @@ const turnPlayerTwo = function () {
 // GENERATE DICE ROLL
 dice.addEventListener("click", function () {
   if (isPlaying === true) {
-    // const diceRoll = Math.trunc(Math.random() * 6) + 1;
-    const diceRoll = 50;
+    const diceRoll = Math.trunc(Math.random() * 6) + 1;
 
     // DISPLAY DICE ROLL
-    // dice.src = `/images/dice-${diceRoll}.png`;
-    dice.src = `/images/dice-6.png`;
+    dice.src = `/images/dice-${diceRoll}.png`;
 
     // MOVE GAME PIECE
     if (playerOnePosition === playerTwoPosition) {
