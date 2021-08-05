@@ -122,7 +122,7 @@ dice.addEventListener("click", function () {
       // IF PLAYERS ARE ON THE SAME SQUARE
       if (currentPlayer === 1) {
         playerOnePosition += diceRoll;
-        turnPlayerOne();
+        setTimeout(turnPlayerOne(), 2000);
 
         document.querySelector(
           `.square-${playerTwoPosition}`
@@ -130,7 +130,7 @@ dice.addEventListener("click", function () {
         currentPlayer = 2;
       } else {
         playerTwoPosition += diceRoll;
-        turnPlayerTwo();
+        setTimeout(turnPlayerTwo(), 20000);
 
         document.querySelector(
           `.square-${playerOnePosition}`
@@ -145,7 +145,7 @@ dice.addEventListener("click", function () {
           playerOnePosition;
 
         playerOnePosition += diceRoll;
-        turnPlayerOne();
+        setTimeout(turnPlayerOne(), 500);
 
         currentPlayer = 2;
       } else {
@@ -153,7 +153,7 @@ dice.addEventListener("click", function () {
           playerTwoPosition;
 
         playerTwoPosition += diceRoll;
-        turnPlayerTwo();
+        setTimeout(turnPlayerTwo(), 2000);
 
         currentPlayer = 1;
       }
