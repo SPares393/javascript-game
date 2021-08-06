@@ -13,11 +13,12 @@ let playerOnePosition = 1;
 let playerTwoPosition = 1;
 
 // CREATE GAME BOARD
-const makeGrid = function (rows, cols) {
+const makeGrid = (rows, cols) => {
   for (i = rows * cols; i > 0; i--) {
     gameBoard.innerHTML += `<div class="game-board-square square-${i}">${i}</div>`;
   }
 };
+
 makeGrid(10, 10);
 
 const squareOne = document.querySelector(".square-1");
@@ -25,7 +26,7 @@ const squareEnd = document.querySelector(".square-100");
 
 // INITIATE GAME
 
-const gameReset = function () {
+const gameReset = () => {
   currentPlayer = 1;
   for (let i = 1; i < 101; i++) {
     document.querySelector(`.square-${i}`).textContent = i;
@@ -46,13 +47,13 @@ gameStart.addEventListener("click", function () {
 
 // WIN FUNCTION
 
-const displayWinnerMessage = function (player) {
+const displayWinnerMessage = (player) => {
   winnerMessage.innerHTML = `<h1>Player ${player} Wins!!!</h1>`;
   winnerMessage.classList.remove("hidden");
   blur.classList.remove("hidden");
 };
 
-const hideWinnerMessage = function () {
+const hideWinnerMessage = () => {
   if (!winnerMessage.classList.contains("hidden")) {
     winnerMessage.classList.add("hidden");
     blur.classList.add("hidden");
@@ -79,7 +80,7 @@ let snakesAndLadders = {
   73: 91,
 };
 
-const turnPlayerOne = function () {
+const turnPlayerOne = () => {
   if (playerOnePosition >= 100) {
     squareEnd.innerHTML += `${gamePieceOne}`;
     displayWinnerMessage("One");
@@ -94,7 +95,7 @@ const turnPlayerOne = function () {
   }
 };
 
-const turnPlayerTwo = function () {
+const turnPlayerTwo = () => {
   if (playerTwoPosition >= 100) {
     squareEnd.innerHTML += `${gamePieceTwo}`;
     displayWinnerMessage("Two");
@@ -122,7 +123,7 @@ dice.addEventListener("click", function () {
       // IF PLAYERS ARE ON THE SAME SQUARE
       if (currentPlayer === 1) {
         playerOnePosition += diceRoll;
-        setTimeout(turnPlayerOne(), 2000);
+        setTimeout(turnPlayerOne(), 500);
 
         document.querySelector(
           `.square-${playerTwoPosition}`
@@ -130,7 +131,7 @@ dice.addEventListener("click", function () {
         currentPlayer = 2;
       } else {
         playerTwoPosition += diceRoll;
-        setTimeout(turnPlayerTwo(), 20000);
+        setTimeout(turnPlayerTwo(), 500);
 
         document.querySelector(
           `.square-${playerOnePosition}`
@@ -153,7 +154,7 @@ dice.addEventListener("click", function () {
           playerTwoPosition;
 
         playerTwoPosition += diceRoll;
-        setTimeout(turnPlayerTwo(), 2000);
+        setTimeout(turnPlayerTwo(), 500);
 
         currentPlayer = 1;
       }
