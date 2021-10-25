@@ -1,3 +1,5 @@
+// test commit
+
 const gameBoard = document.querySelector(".game-board");
 const gameStart = document.querySelector(".game-start");
 const dice = document.querySelector(".dice");
