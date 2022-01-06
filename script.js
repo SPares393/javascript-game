@@ -118,7 +118,7 @@ dice.addEventListener("click", function () {
     const diceRoll = Math.trunc(Math.random() * 6) + 1;
 
     // DISPLAY DICE ROLL
-    dice.src = `/images/dice-${diceRoll}.png`;
+    dice.src = `https://spares393.github.io/javascript-game/images/dice-${diceRoll}.png`;
 
     // MOVE GAME PIECE
     if (playerOnePosition === playerTwoPosition) {
