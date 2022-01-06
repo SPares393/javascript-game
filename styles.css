@@ -122,70 +122,70 @@ header {
 
 .square-11,
 .square-99 {
-  background-image: url("/images/snake-red.png");
+  background-image: url("https://spares393.github.io/javascript-game/images/snake-red.png");
   background-repeat: no-repeat;
   background-size: 100%;
 }
 
 .square-7,
 .square-42 {
-  background-image: url("/images/snake-green.png");
+  background-image: url("https://spares393.github.io/javascript-game/images/snake-green.png");
   background-repeat: no-repeat;
   background-size: 100%;
 }
 
 .square-24,
 .square-58 {
-  background-image: url("/images/snake-gray.png");
+  background-image: url("https://spares393.github.io/javascript-game/images/snake-gray.png");
   background-repeat: no-repeat;
   background-size: 100%;
 }
 
 .square-39,
 .square-77 {
-  background-image: url("/images/snake-yellow.png");
+  background-image: url("https://spares393.github.io/javascript-game/images/snake-yellow.png");
   background-repeat: no-repeat;
   background-size: 100%;
 }
 
 .square-61,
 .square-85 {
-  background-image: url("/images/snake-brown.png");
+  background-image: url("https://spares393.github.io/javascript-game/images/snake-brown.png");
   background-repeat: no-repeat;
   background-size: 100%;
 }
 
 .square-2,
 .square-33 {
-  background-image: url("/images/ladder-brown.png");
+  background-image: url("https://spares393.github.io/javascript-game/images/ladder-brown.png");
   background-repeat: no-repeat;
   background-size: 100%;
 }
 
 .square-19,
 .square-28 {
-  background-image: url("/images/ladder-red.png");
+  background-image: url("https://spares393.github.io/javascript-game/images/ladder-red.png");
   background-repeat: no-repeat;
   background-size: 100%;
 }
 
 .square-25,
 .square-66 {
-  background-image: url("/images/ladder-black.png");
+  background-image: url("https://spares393.github.io/javascript-game/images/ladder-black.png");
   background-repeat: no-repeat;
   background-size: 100%;
 }
 
 .square-59,
 .square-89 {
-  background-image: url("/images/ladder-gray.png");
+  background-image: url("https://spares393.github.io/javascript-game/images/ladder-gray.png");
   background-repeat: no-repeat;
   background-size: 100%;
 }
 
 .square-73,
 .square-91 {
-  background-image: url("/images/ladder-pine.png");
+  background-image: url("https://spares393.github.io/javascript-game/images/ladder-pine.png");
   background-repeat: no-repeat;
   background-size: 100%;
 }
